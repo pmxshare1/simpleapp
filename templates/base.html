@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <title>BusineX</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/coin-slider.css' %}" />
+    <script type="text/javascript" src="{% static 'js/cufon-yui.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/droid_sans_400-droid_sans_700.font.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-1.4.2.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/coin-slider.min.js' %}"></script>
+    </head>
+
+    <body>
+        <div class="main">
+            {% include 'header.html' %}
+    
+            {% block content %}
+
+            {% endblock content %}
+
+            {% include 'fbg.html' %}
+
+            {% include 'footer.html' %}
+        </div>
+        <div align=center>This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div>
+    </body>
+</html>
