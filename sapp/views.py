@@ -3,8 +3,12 @@ from .models import HomeContent
 
 # Create your views here.
 def home(request):
-    ctx = HomeContent.objects.get(contentId=1234)
-    return render(request, 'index.html', {'data':ctx})
+    try:
+        ctx = HomeContent.objects.get(contentId=1234)
+        return render(request, 'index.html', {'data':ctx})
+    except:
+        return render(request, 'index.html')
+
 
 def blog(request):
     return render(request, 'blog.html')
