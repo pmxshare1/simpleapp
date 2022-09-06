@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -80,13 +82,22 @@ DATABASES = {
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
 
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'sapp.db',
+    #     'HOST': '127.0.0.1',
+    #     'PORT': 5432,
+    #     'USER': 'postgres',
+    #     'PASSWORD': '!student1'
+    # }
+
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sapp.db',
-        'HOST': '127.0.0.1',
+        'NAME': 'd4uabodk0e8el',
+        'HOST': 'ec2-3-224-184-9.compute-1.amazonaws.com',
         'PORT': 5432,
-        'USER': 'postgres',
-        'PASSWORD': '!student1'
+        'USER': 'heiaklgikicxmu',
+        'PASSWORD': '8af811e31c7bfe3a82076c2d9e549bddfec084eca0120cd58ee68d2b812826ca'
     }
 }
 
@@ -137,3 +148,8 @@ STATIC_ROOT = BASE_DIR / 'assets'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+django_heroku.settings(locals())
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
